@@ -34,7 +34,8 @@ Clone the repository to your local machine and run
 * npm install mongoose - DB
 * npm install cors
 * npm install bcryptjs
-* npm install 
+* npm install jsonwebtoken
+
 #### 1. Register Feature 
 #### 2. Login Feature 
 #### 3. Admin Feature
