@@ -15,7 +15,10 @@ This site was built using:
 - [Zenodo API](https://developers.zenodo.org/) 
 - [Ncbi API](https://www.ncbi.nlm.nih.gov/home/develop/api/)
 
-How to Run Web Application
+
+### [UserInterface] Mockups
+* [ZenodoWebApp](https://xd.adobe.com/view/8c64e613-78fb-48c8-bda6-d324140c93ec-d937/) 
+
 
 Clone the repository to your local machine and run 
 
@@ -35,6 +38,8 @@ Clone the repository to your local machine and run
 * npm install cors
 * npm install bcryptjs
 * npm install jsonwebtoken
+* npm install express-jwt
+* npm install cookie-parser
 
 #### 1. Register Feature 
 #### 2. Login Feature 
