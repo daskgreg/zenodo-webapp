@@ -28,6 +28,10 @@ Clone the repository to your local machine and run
 *
 *
 
+#### 1. Register Feature  &#9744;  
+#### 2. Login Feature  &#9744; 
+#### 3. Admin Feature &#9744; 
+
 ### [Backend] - NodeJS Packages used
 * npm install express
 * npm install nodemon
@@ -41,9 +45,9 @@ Clone the repository to your local machine and run
 * npm install express-jwt
 * npm install cookie-parser
 
-#### 1. Register Feature 
-#### 2. Login Feature 
-#### 3. Admin Feature
+#### 1. Register Feature  &#9745; 
+#### 2. Login Feature  &#9745; 
+#### 3. Admin Feature &#9744; 
 
 ### [DataBase] - MongoDB Schemas
 * username: csd3478 password: csd3478mongodb
