@@ -35,6 +35,8 @@ Clone the repository to your local machine and run
 * npm install cors
 * npm install bcryptjs
 * npm install jsonwebtoken
+* npm install express-jwt
+* npm install cookie-parser
 
 #### 1. Register Feature 
 #### 2. Login Feature 

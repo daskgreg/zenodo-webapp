@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { cookieJwtAuth } = require("../middleware/cookieJwtAuth");
 
-router.get(`/list`, async (req,res)=>{
+router.get(`/list`,cookieJwtAuth,async (req,res)=>{
     // const userList = await User.find().select('-passwordHash');
     const userList = await User.find()
     if(!userList){
@@ -75,20 +76,27 @@ router.put('/update/user/:id', async (req,res)=>{
 
 router.post('/login', async (req,res) => {
     const user = await User.findOne({username:req.body.username});
-
+    const secret = process.env.SECRET;
     if(!user) return res.status(400).send('The User not found');
 
     if(user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
-        // const token = jwt.sign(
-        //     {
-        //         userId: user.id,
-        //         isAdmin: user.isAdmin
-        //     },
-        //     secret,
-        //     {expiresIn : '1d'}
-        // )
+        const token = jwt.sign(
+            {
+                userId: user.id,
+                isAdmin: user.isAdmin
+            },
+            secret,
+            {expiresIn : '1d'}
+        )
+
+        res.cookie("token",token,{
+            httpOnly:true,
+            secure:true,
+            maxAge:100000,
+            signed:true
+        });
        
-        res.status(200).send({message:"User Authenticated"})
+        res.status(200).send({message:"User Authenticated",user: user.username, token: token})
     } else {
        res.status(400).send('password is wrong!');
     }
