@@ -57,6 +57,7 @@
                       [attr.aria-label]="'Hide Password'"
                       [attr.aria-pressed]="hide"
                     >
+                    
                       <mat-icon>
                           <i class="fa-solid fa-lock"></i>
                       </mat-icon>
@@ -74,7 +75,11 @@
                     Username Is wrong
                 </mat-error>
       
-                <button class="login-btn" mat-flat-button color="primary">Login</button>
+                <button class="login-btn" mat-flat-button color="primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    <span *ngIf="!loading" 
+                    >Login</span>
+                </button>
               </form>
 
         

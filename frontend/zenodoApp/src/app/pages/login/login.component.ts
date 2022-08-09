@@ -57,7 +57,18 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }
+
+    this.loading = true;
+        this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate(['/dashboard']);
+                },
+                error => {
+                    this.loading = false;
+                });
+    }
   }
 
 
-}
