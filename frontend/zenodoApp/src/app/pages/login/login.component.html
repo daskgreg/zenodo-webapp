@@ -1,1 +1,89 @@
-<p>login works!</p>
+<div class="split left">
+  <div class="centered"></div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <div class="logo">
+      <img src="../../../assets/img/login/LOGO.svg" />
+    </div>
+    <label for="" class="txt-welcome">Welcome,</label>
+    <p class="txt-descr">
+      to zenodo web application, get your queries ready for extensive results
+    </p>
+
+    <mat-card>
+      <mat-card-content>
+        <div class="header">
+          <P>Sign Into Your Account </P>
+        </div>
+            <form (ngSubmit)="onLogin()"  name="loginForm" [formGroup]="loginForm">
+                <div class="formDiv">
+                     <mat-label class="formLabel">Username</mat-label>
+                      <input
+                        [ngModel]="usernameInput" (ngModelChange)="usernameFunc($event)"
+                        class="formInput"
+                        formControlName="username"
+                        matInput
+                        required
+                      />
+                      
+                      <mat-error *ngIf="usernameIsRequired">
+                          <span class="error-username">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Username is required
+                          </span>
+                      </mat-error>
+                      <mat-error *ngIf="usernameIsWrong">
+                        Username Is wrong
+                     </mat-error>
+                </div>
+                  
+                <div class="formDiv">
+                      <mat-label class="formLabel">Password</mat-label>
+                      <input
+                      [ngModel]="usernameInput" (ngModelChange)="passwordFunc($event)"
+                      class="formInput"
+                      formControlName="password"
+                      matInput
+                      [type]="hide ? 'text' : 'password'"
+                      required
+                    />
+                    <button
+                      class="lock-btn"
+                      mat-icon-button
+                      matSuffix
+                      (click)="hide = !hide"
+                      [attr.aria-label]="'Hide Password'"
+                      [attr.aria-pressed]="hide"
+                    >
+                      <mat-icon>
+                          <i class="fa-solid fa-lock"></i>
+                      </mat-icon>
+                    </button>
+            
+                </div>
+             
+                <mat-error *ngIf="passwordIsRequired">
+                    <span class="error-password">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        Password is required
+                      </span>
+                </mat-error>
+                <mat-error *ngIf="passwordIsWrong">
+                    Username Is wrong
+                </mat-error>
+      
+                <button class="login-btn" mat-flat-button color="primary">Login</button>
+              </form>
+
+        
+
+        <div class="button-row">
+          <p>If you don't have an account please,</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <a routerLink="/register" class="register" >Request an Account</a>
+  </div>
+</div>

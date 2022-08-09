@@ -1,0 +1,105 @@
+.txt-welcome{
+    display:block;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size:5rem;
+    color:var(--white);
+}
+.txt-descr{
+    display:block;
+    color:var(--white);
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-display: swap;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    background-image: url(../../../assets/img/login/bg-left-side-login.svg);
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+  }
+  
+  .right {
+    right: 0;
+    background-color:var(--primary)
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+
+// Center
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 12px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    font-family:'Roboto';
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  .lock-btn{
+    position: absolute;
+    left: 88%;
+    bottom: 43%;
+    background: var(--white);
+  }
+  .formLabel{
+    position: relative;
+    right: 42%;
+    font-family: 'Roboto';
+    color: var(--white);
+    font-weight: 300;
+  }
+  .formDiv{
+  }
+  button{
+      color:var(--primary)
+  }
+  .login-btn{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 18px 0;
+    font-family:'Roboto';
+    font-weight: 600;
+    font-size: 1.5rem;
+    
+  }
+.error-username{
+    position: absolute;
+    left: 28%;
+    top: 24%;
+    color: red;
+}
+.error-password{
+    position: absolute;
+    left: 28%;
+    top: 51%;
+    color: red; 
+}
+.register{
+    color:white;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
