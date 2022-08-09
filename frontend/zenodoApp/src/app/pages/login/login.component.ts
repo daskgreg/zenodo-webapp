@@ -63,7 +63,12 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+                  if(data.isAdmin){
+                    this.router.navigate(['/admin']);
+                  }else{
                     this.router.navigate(['/dashboard']);
+                  }
+                    
                 },
                 error => {
                     this.loading = false;

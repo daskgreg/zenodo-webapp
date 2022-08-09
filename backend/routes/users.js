@@ -78,7 +78,7 @@ router.post('/login', async (req,res) => {
     const user = await User.findOne({username:req.body.username});
     const secret = process.env.SECRET;
     if(!user) return res.status(400).send('The User not found');
-
+    console.log(user);
     if(user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
         const token = jwt.sign(
             {
@@ -95,8 +95,8 @@ router.post('/login', async (req,res) => {
             maxAge:100000,
             signed:true
         });
-       
-        res.status(200).send({message:"User Authenticated",user: user.username, token: token})
+        console.log("---------------------",user);
+        res.status(200).send({message:"User Authenticated",user: user.username, isAdmin: user.isAdmin, token: token})
     } else {
        res.status(400).send('password is wrong!');
     }

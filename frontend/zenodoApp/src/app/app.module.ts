@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlertComponent } from './components/alert/alert.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AlertComponent
+    AlertComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
