@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthenticationService } from '../app/services/authentication.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +15,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+import { UserService } from '../app/services/userService.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     RegisterComponent,
     DashboardComponent,
     AlertComponent,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +39,12 @@ import { AdminComponent } from './pages/admin/admin.component';
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    
   ],
-  providers: [],
+  providers: [TokenInterceptorService,{provide:HTTP_INTERCEPTORS,useClass: TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
